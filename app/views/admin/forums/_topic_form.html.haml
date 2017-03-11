@@ -1,0 +1,14 @@
+= form_tag url_for(controller: :topics , action: :js_add_topic), remote: true do
+  %fieldset.inputs
+    %ol
+      %li#topic_input.text.input.optional
+        %input#topic_id{type: "hidden", name: "forum[forum_id]", value: @forum_id}
+      %li#topic_content_input.text.input.optional
+        %label.label{for: "topic_name"} name
+        %input#topic_name{type: "text",name: "topic[name]", rows: "10"}
+  %fieldset.actions
+    %ol
+      %li#topic_submit_action.action.input_action
+        %input#topic_submit{type: "submit",name: "commit",value: "Add topic"}
+      %li.cancel
+        %input#topic_cancel{type: "submit",name: "cancel",onclick: "$('#topic_#{@forum_id}').html(' ')",value: "Cancel"}

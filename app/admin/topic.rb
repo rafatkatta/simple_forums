@@ -1,7 +1,8 @@
 ActiveAdmin.register Topic do
-  menu priority: 4, label: proc{ I18n.t("active_admin.topic") }
-  permit_params :name , :last_poster_full_name, :forum_id, :user_id,
-                :full_name, :poster_full_name, :last_post_at
+  #belongs_to :forum
+  menu false #priority: 4, label: proc{ I18n.t("active_admin.topic") }
+  permit_params :name , :last_poster, :forum_id, :user_id,
+                :full_name, :last_post_at
 
 
   index do
@@ -9,13 +10,13 @@ ActiveAdmin.register Topic do
     id_column
     column :name
     column :full_name
-    column :last_poster_full_name
+    column :last_poster
     column :last_posted
     actions
   end
 
   filter :name
-  filter :last_poster_full_name
+  filter :last_poster
   filter :last_post_at
   filter :created_at
 
@@ -32,8 +33,16 @@ ActiveAdmin.register Topic do
     f.actions
   end
 
-  member_action :js_comment, method: :post do
-    @topice_id = resource.id
+  member_action :js_add_topic, method: :post do
+    Topic.create!(user: current_user, name: params[:topic][:name],
+                  forum_id: params[:forum][:forum_id])
+    respond_to do |format|
+      format.js {render inline: "location.reload();" }
+    end
+  end
+
+  member_action :js_post, method: :post do
+    @topic_id = resource.id
     respond_to :js
   end
 

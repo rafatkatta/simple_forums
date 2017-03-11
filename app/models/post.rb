@@ -1,18 +1,27 @@
 class Post < ApplicationRecord
-  belongs_to :user
+  belongs_to :poster, class_name: "User"
   belongs_to :topic, autosave: true
 
-  delegate :full_name, to: :user
-  delegate :last_poster_id, to: :topic
+  has_many :user_comments
+
+  delegate :full_name, to: :poster
+  delegate :last_poster, to: :topic
   delegate :last_post_at, to: :topic
 
-  after_commit :set_post_topic_data, on: [:create, :destroy]
+  def last_commenter
+    self.user_comments.last.commenter
+  end
 
-  private
+  def last_commenter_full_name
+    last_commenter.try(:full_name) || ""
+  end
 
-  def set_post_topic_data
-    topic = Topic.find(topic_id)
-    topic.update_attributes!(last_poster_id: user_id, last_post_at: DateTime.now)
+  def last_comment
+    self.user_comments.last.created_at.to_s || ""
+  end
+
+  def posted
+    created_at.to_s
   end
 
 end

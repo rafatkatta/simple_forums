@@ -1,0 +1,14 @@
+= form_tag url_for(controller: :user_comments , action: :js_add_comment), remote: true do
+  %fieldset.inputs
+    %ol
+      %li#post_input.select.input.optional
+        %text#post_id{name: "post[post_id]", value: @post_id}
+      %li#post_content_input.text.input.optional
+        %label.label{for: "comment_content"} Content
+        %textarea#post_content{name: "post[content]", rows: "10"}
+  %fieldset.actions
+    %ol
+      %li#post_submit_action.action.input_action
+        %input#post_submit{type: "submit",name: "commit",value: "Create Comment"}
+      %li.cancel
+        %input#post_cancel{type: "submit",name: "cancel",onclick: "$('#comment_post_#{@post_id}').html(#{button_to "comment",js_comment_admin_post_path(@post_id), remote: true})",value: "Cancel"}

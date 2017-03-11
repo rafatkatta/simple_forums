@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170302182925) do
+ActiveRecord::Schema.define(version: 20170305134839) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -37,24 +37,32 @@ ActiveRecord::Schema.define(version: 20170302182925) do
 
   create_table "posts", force: :cascade do |t|
     t.text     "content"
-    t.integer  "user_id"
+    t.integer  "poster_id"
     t.integer  "topic_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["poster_id"], name: "index_posts_on_poster_id"
     t.index ["topic_id"], name: "index_posts_on_topic_id"
-    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "topics", force: :cascade do |t|
     t.string   "name"
-    t.integer  "last_poster_id"
-    t.datetime "last_post_at"
     t.integer  "user_id"
     t.integer  "forum_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["forum_id"], name: "index_topics_on_forum_id"
     t.index ["user_id"], name: "index_topics_on_user_id"
+  end
+
+  create_table "user_comments", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "commenter_id"
+    t.integer  "post_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["commenter_id"], name: "index_user_comments_on_commenter_id"
+    t.index ["post_id"], name: "index_user_comments_on_post_id"
   end
 
   create_table "user_levels", force: :cascade do |t|
@@ -84,7 +92,7 @@ ActiveRecord::Schema.define(version: 20170302182925) do
     t.integer  "failed_attempts",        default: 0,     null: false
     t.string   "unlock_token"
     t.datetime "locked_at"
-    t.boolean  "active",                 default: false
+    t.boolean  "active",                 default: false, null: false
     t.integer  "user_level_id"
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false

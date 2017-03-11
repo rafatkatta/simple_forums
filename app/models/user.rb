@@ -5,9 +5,11 @@ devise :database_authenticatable,
        :recoverable, :rememberable, :registerable, :trackable
        #,:confirmable, :validatable
   belongs_to :user_level
+  has_many :comments
   has_many :posts
   has_many :topics
   has_one  :forum
+
 
   delegate :level, to: :user_level
   delegate :description,to: :user_level
@@ -17,7 +19,7 @@ devise :database_authenticatable,
   end
 
   def is_active?
-    self.active
+    active
   end
 
   def inactive_message
@@ -26,6 +28,10 @@ devise :database_authenticatable,
 
   def full_name
     return "#{first_name} #{last_name}"
+  end
+
+  def has_admin_level?
+    level < 3 ? true : false
   end
 
 end
