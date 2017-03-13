@@ -21,3 +21,26 @@ $panelHeaderBck: #002744;
 // For example, to change the default status-tag color:
 //
 //   .status_tag { background: #6090DB; }
+
+div.table {
+  display: table;
+  width: 100%;
+  border-collapse:collapse;
+}
+div.tr {
+  display:table-row;
+  background: #c3d9ff;
+}
+div.th {
+  display:table-cell;
+  background: #c3d9ff;
+  font-weight: bold;
+  vertical-align: top;
+  padding:5px;
+}
+div.td {
+  display:table-cell;
+  background: #000000;
+  vertical-align: top;
+  padding:5px;
+}

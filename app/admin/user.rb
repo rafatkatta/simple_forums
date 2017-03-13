@@ -4,6 +4,14 @@ ActiveAdmin.register User do
   permit_params :email, :password, :password_confirmation,
                 :first_name, :last_name, :user_level_id, :active, :description
 
+  scope_to :current_user, unless: proc{current_user.has_admin_level?}
+
+  controller do
+    actions :all, except: [:edit, :update, :new]
+    def scoped_collection
+      User.where(id: current_user.id)
+    end
+  end
 
   index do
     selectable_column
@@ -22,13 +30,15 @@ ActiveAdmin.register User do
     actions
   end
 
+
   filter :email
   filter :current_sign_in_at
   filter :sign_in_count
   filter :created_at
 
+
   form do |f|
-    f.inputs "Users Details" do
+    f.inputs "User Details" do
       f.input :email
       f.input :password
       f.input :password_confirmation
@@ -51,5 +61,5 @@ ActiveAdmin.register User do
         format.js {render inline: "location.reload();" }
       end
   end
-  
+
 end
