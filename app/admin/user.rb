@@ -4,12 +4,21 @@ ActiveAdmin.register User do
   permit_params :email, :password, :password_confirmation,
                 :first_name, :last_name, :user_level_id, :active, :description
 
-  scope_to :current_user, unless: proc{current_user.has_admin_level?}
+  #scope_to :current_user, unless: proc{current_user.has_admin_level?}
 
   controller do
-    actions :all, except: [:edit, :update, :new]
+    disallowed = []
+    disallowed << :edit unless proc{current_user.has_admin_level?}
+    disallowed << :new if proc{current_user.has_admin_level?}
+    disallowed << :delete unless proc{current_user.has_admin_level?}
+    actions :all, except: disallowed
+
     def scoped_collection
-      User.where(id: current_user.id)
+      if current_user.has_admin_level?
+        User.all
+      else
+        User.where(id: current_user.id)
+      end
     end
   end
 
