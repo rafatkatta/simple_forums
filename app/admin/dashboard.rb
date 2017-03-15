@@ -25,7 +25,7 @@ ActiveAdmin.register_page "Dashboard" do
             end
           end
         end
-        div id: "topic_#{forum.id}"
+        div class: "Form_Topics",id: "topic_#{forum.id}"
         forum.topics.each do |topic|
           tabs do
             tab "Topics" do
@@ -48,10 +48,10 @@ ActiveAdmin.register_page "Dashboard" do
               end
             end
           end
+          div class: "Topic_Posts", id: "post_#{topic.id}"
           topic.posts.each do |post|
             tabs do
               tab "Posts" do
-                div id: "post_#{topic.id}"
                   table_for post do
                     column post.full_name
                     column post.content
@@ -69,9 +69,10 @@ ActiveAdmin.register_page "Dashboard" do
                   end
                 end
               end
-            div id: "comment_post_#{post.id}", style: "text-align: left;" do
+            div class: "Post_comments", id: "comment_post_#{post.id}", style: "text-align: left;" do
               button_to "comment",js_comment_admin_post_path(post.id), remote: true
             end
+            div class: "spacing", style: "height: 20px;"
           end
         end
       end

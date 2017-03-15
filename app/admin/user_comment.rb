@@ -1,5 +1,5 @@
 ActiveAdmin.register UserComment do
-  belongs_to :post 
+  #belongs_to :post 
   permit_params :content, :post_id, :commenter_id
 
   index do
