@@ -14,6 +14,8 @@ devise :database_authenticatable,
   delegate :level, to: :user_level
   delegate :description,to: :user_level
 
+  after_create :set_member_level
+
   def active_for_authentication?
     super && self.active?
   end
@@ -32,6 +34,13 @@ devise :database_authenticatable,
 
   def has_admin_level?
     level < 3 ? true : false
+  end
+
+  private
+
+  def set_member_level
+    self.user_level_id = 4
+    self.save!
   end
 
 end
