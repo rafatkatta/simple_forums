@@ -25,10 +25,10 @@ ActiveAdmin.register_page "Dashboard" do
             end
           end
         end
+        div id: "topic_#{forum.id}"
         forum.topics.each do |topic|
           tabs do
             tab "Topics" do
-              div id: "topic_#{forum.id}"
               div class: "table" do
                 div class: "tr" do
                   div class: "th" do
@@ -78,5 +78,4 @@ ActiveAdmin.register_page "Dashboard" do
     end
   end
 end
-#t.column("Assigned To") { |task| task.admin_user.email }
-#|t|
+#|
