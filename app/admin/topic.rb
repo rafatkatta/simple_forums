@@ -46,5 +46,27 @@ ActiveAdmin.register Topic do
     respond_to :js
   end
 
+  member_action :js_delete, method: :delete do
+    Topic.find(params[:id]).destroy
+    respond_to do |format|
+      format.js {render inline: "location.reload();" }
+    end
+  end
+
+  member_action :js_edit, method: :post do
+    @topic = Topic.find(params[:id])
+    respond_to :js
+  end
+
+  member_action :js_update, method: :post do
+    if params[:commit] == "update"
+      @topic = Topic.find(params[:topic][:topic_id])
+      @topic.update_attribute(:name, params[:topic][:name])
+    end
+    respond_to do |format|
+      format.js {render inline: "location.reload();" }
+    end
+  end
+
 end
 #|t|

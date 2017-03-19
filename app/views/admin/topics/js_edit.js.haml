@@ -1,0 +1,1 @@
+$("#topic_#{@topic.id}").html("#{escape_javascript(render partial: 'update_topic_form',locals: {topic_id: @topic.id})}");

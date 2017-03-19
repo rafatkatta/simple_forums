@@ -1,0 +1,1 @@
+$("#post_#{@post.id}").html("#{escape_javascript(render partial: 'update_post_form',locals: {post_id: @post.id})}");

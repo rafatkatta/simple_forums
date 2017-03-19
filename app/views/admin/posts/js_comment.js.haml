@@ -1,1 +1,1 @@
-$("#comment_post_#{@post_id}").html("#{escape_javascript(render partial: 'post_form',locals: {post_id: @post_id})}");
+$("#comment_post_#{@post_id}").html("#{escape_javascript(render partial: 'comment_form',locals: {comment_id: @comment_id})}");

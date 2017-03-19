@@ -1,0 +1,1 @@
+$("#forum_#{@forum.id}").html("#{escape_javascript(render partial: 'update_forum_form',locals: {forum_id: @forum.id})}");

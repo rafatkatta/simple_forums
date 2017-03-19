@@ -2,7 +2,7 @@ class Post < ApplicationRecord
   belongs_to :poster, class_name: "User"
   belongs_to :topic, autosave: true
 
-  has_many :user_comments
+  has_many :user_comments, dependent: :destroy
 
   delegate :full_name, to: :poster
   delegate :last_poster, to: :topic

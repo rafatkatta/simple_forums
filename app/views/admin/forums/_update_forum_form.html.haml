@@ -1,0 +1,17 @@
+= form_tag url_for(action: :js_update), remote: true do
+  %fieldset.inputs
+    %ol
+      %li#forum_input.text.input.optional
+        %input#forum_id{type: "hidden", name: "forum[forum_id]", value: @forum.id}
+      %li#forum_name_input.text.input.optional
+        %label.label{for: "forum_name"} name
+        %input#forum_name{name: "forum[name]",value: @forum.name }
+      %li#forum_description_input.text.input.optional
+        %label.label{for: "forum_description"} description
+        %input#forum_description{name: "forum[description]", value: @forum.description}
+  %fieldset.actions
+    %ol
+      %li#forum_submit_action.action.input_action
+        %input#forum_submit{type: "submit",name: "commit",value: "update"}
+      %li.cancel
+        %input#forum_cancel{type: "submit",name: "cancel",value: "Cancel"}

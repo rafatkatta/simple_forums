@@ -1,0 +1,1 @@
+$("#comment_#{@user_comment.id}").html("#{escape_javascript(render partial: 'comment_form',locals: {user_comment_id: @user_comment})}");

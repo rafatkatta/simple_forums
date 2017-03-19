@@ -41,6 +41,7 @@ gem 'devise', '~> 4.2'
 gem 'activeadmin', '~> 1.0.0.pre4'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'activeadmin_addons'
+#gem 'active_admin_editor' , github: 'ejholmes/active_admin_editor'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'haml', '~> 5.0.0.beta.2'

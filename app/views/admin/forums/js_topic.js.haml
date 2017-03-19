@@ -1,1 +1,1 @@
-$("#topic_#{@forum_id}").html("#{escape_javascript(render partial: 'topic_form',locals: { forum_id: @forum_id, user_id: @user_id})}");
+$("#forum_topic_#{@forum_id}").html("#{escape_javascript(render partial: 'topic_form',locals: { forum_id: @forum_id, user_id: @user_id})}");

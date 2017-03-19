@@ -1,0 +1,15 @@
+= form_tag url_for(action: :js_update), remote: true do
+  %fieldset.inputs
+    %ol
+      %li#comment_input.text.input.optional
+        %input#comment_id{type: "hidden", name: "comment[comment_id]", value: @user_comment.id}
+      %li#post_content_input.text.input.optional
+        %label.label{for: "comment_content"} content
+        %textarea#post_content{name: "comment[content]", rows: "10"}
+          = @user_comment.content
+  %fieldset.actions
+    %ol
+      %li#comment_submit_action.action.input_action
+        %input#comment_submit{type: "submit",name: "commit",value: "update"}
+      %li.cancel
+        %input#comment_cancel{type: "submit",name: "cancel",value: "Cancel"}

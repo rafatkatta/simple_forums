@@ -20,7 +20,7 @@ ActiveAdmin.register Post do
       f.input :poster_id, label: "User",
         as: :select,
         collection: User.all.map{|u| [u.full_name, u.id]}
-      f.input :content, as: :text, label: "Post"
+      f.input :content, as: :html_editor, label: "Post"
     end
     f.actions
   end
@@ -34,6 +34,28 @@ ActiveAdmin.register Post do
   member_action :js_add_post, method: :post do
     Post.create!(poster: current_user, content: params[:post][:content],
                   topic_id: params[:topic][:topic_id])
+    respond_to do |format|
+      format.js {render inline: "location.reload();" }
+    end
+  end
+
+  member_action :js_delete, method: :delete do
+    Post.find(params[:id]).destroy
+    respond_to do |format|
+      format.js {render inline: "location.reload();" }
+    end
+  end
+
+  member_action :js_edit, method: :post do
+    @post = Post.find(params[:id])
+    respond_to :js
+  end
+
+  member_action :js_update, method: :post do
+    if params[:commit] == "update"
+      @post = Post.find(params[:post][:post_id])
+      @post.update_attribute(:content, params[:post][:content])
+    end
     respond_to do |format|
       format.js {render inline: "location.reload();" }
     end

@@ -39,8 +39,10 @@ devise :database_authenticatable,
   private
 
   def set_member_level
-    self.user_level_id = 4
-    self.save!
+    if self.user_level_id.nil?
+      self.user_level_id = 4
+      self.save!
+    end
   end
 
 end

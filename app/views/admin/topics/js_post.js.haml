@@ -1,2 +1,1 @@
-console.log("______________________--post_#{@topic_id}");
-$("#post_#{@topic_id}").html("#{escape_javascript(render partial: 'post_form',locals: {topic_id: @topic_id})}");
+$("#topic_post_#{@topic_id}").html("#{escape_javascript(render partial: 'post_form',locals: {topic_id: @topic_id})}");
