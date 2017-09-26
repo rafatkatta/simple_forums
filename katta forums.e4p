@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Project SYSTEM "Project-5.1.dtd">
+<!-- eric project file for project katta forums -->
+<!-- Saved: 2017-06-15, 09:22:53 -->
+<!-- Copyright (C) 2017 Rafat Katta, rafatkatta@gsibc.net -->
+<Project version="5.1">
+  <Language></Language>
+  <Hash>b53ddf9edb317f6263a9abdac35d97d12db87aba</Hash>
+  <ProgLanguage mixed="1">Ruby</ProgLanguage>
+  <ProjectType>Console</ProjectType>
+  <Description>Multi Users Forums</Description>
+  <Version>0.1</Version>
+  <Author>Rafat Katta</Author>
+  <Email>rafatkatta@gsibc.net</Email>
+  <Sources>
+    <Source>config/puma.rb</Source>
+    <Source>config/initializers/wrap_parameters.rb</Source>
+    <Source>config/initializers/assets.rb</Source>
+    <Source>config/initializers/devise.rb</Source>
+    <Source>config/initializers/active_admin.rb</Source>
+    <Source>config/initializers/backtrace_silencers.rb</Source>
+    <Source>config/initializers/mime_types.rb</Source>
+    <Source>config/initializers/cookies_serializer.rb</Source>
+    <Source>config/initializers/inflections.rb</Source>
+    <Source>config/initializers/filter_parameter_logging.rb</Source>
+    <Source>config/initializers/session_store.rb</Source>
+    <Source>config/initializers/application_controller_renderer.rb</Source>
+    <Source>config/initializers/new_framework_defaults.rb</Source>
+    <Source>config/spring.rb</Source>
+    <Source>config/application.rb</Source>
+    <Source>config/boot.rb</Source>
+    <Source>config/environments/production.rb</Source>
+    <Source>config/environments/test.rb</Source>
+    <Source>config/environments/development.rb</Source>
+    <Source>config/routes.rb</Source>
+    <Source>config/environment.rb</Source>
+    <Source>test/models/user_level_test.rb</Source>
+    <Source>test/models/category_test.rb</Source>
+    <Source>test/models/topic_test.rb</Source>
+    <Source>test/models/post_test.rb</Source>
+    <Source>test/models/user_test.rb</Source>
+    <Source>test/models/comment_test.rb</Source>
+    <Source>test/test_helper.rb</Source>
+    <Source>db/schema.rb</Source>
+    <Source>db/migrate/2017030218015_create_user_levels.rb</Source>
+    <Source>db/migrate/20170302182817_create_topics.rb</Source>
+    <Source>db/migrate/20170302182724_create_forums.rb</Source>
+    <Source>db/migrate/20170302180916_devise_create_users.rb</Source>
+    <Source>db/migrate/20170302180923_create_active_admin_comments.rb</Source>
+    <Source>db/migrate/20170302182925_create_posts.rb</Source>
+    <Source>db/migrate/20170305134839_create_user_comments.rb</Source>
+    <Source>db/seeds.rb</Source>
+    <Source>app/helpers/application_helper.rb</Source>
+    <Source>app/controllers/application_controller.rb</Source>
+    <Source>app/models/user.rb</Source>
+    <Source>app/models/post.rb</Source>
+    <Source>app/models/user_comment.rb</Source>
+    <Source>app/models/user_level.rb</Source>
+    <Source>app/models/application_record.rb</Source>
+    <Source>app/models/topic.rb</Source>
+    <Source>app/models/forum.rb</Source>
+    <Source>app/mailers/application_mailer.rb</Source>
+    <Source>app/admin/user.rb</Source>
+    <Source>app/admin/post.rb</Source>
+    <Source>app/admin/user_comment.rb</Source>
+    <Source>app/admin/user_level.rb</Source>
+    <Source>app/admin/dashboard.rb</Source>
+    <Source>app/admin/topic.rb</Source>
+    <Source>app/admin/forum.rb</Source>
+    <Source>app/jobs/application_job.rb</Source>
+    <Source>app/channels/application_cable/connection.rb</Source>
+    <Source>app/channels/application_cable/channel.rb</Source>
+    <Source>app/assets/javascripts/active_admin.js.coffee</Source>
+    <Source>app/assets/stylesheets/application.css</Source>
+    <Source>app/views/admin/dashboard/_forums.html.haml</Source>
+    <Source>app/views/admin/user_comments/js_edit.js.haml</Source>
+    <Source>app/views/admin/user_comments/_comment_form.html.haml</Source>
+    <Source>app/views/admin/posts/_post_form.html.haml</Source>
+    <Source>app/views/admin/posts/js_edit.js.haml</Source>
+    <Source>app/views/admin/posts/_update_post_form.html.haml</Source>
+    <Source>app/views/admin/posts/js_comment.js.haml</Source>
+    <Source>app/views/admin/topics/_post_form.html.haml</Source>
+    <Source>app/views/admin/topics/_update_topic_form.html.haml</Source>
+    <Source>app/views/admin/topics/js_post.js.haml</Source>
+    <Source>app/views/admin/topics/js_edit.js.haml</Source>
+    <Source>app/views/admin/forums/js_topic.js.haml</Source>
+    <Source>app/views/admin/forums/_topic_form.html.haml</Source>
+    <Source>app/views/admin/forums/js_edit.js.haml</Source>
+    <Source>app/views/admin/forums/_update_forum_form.html.haml</Source>
+    <Source>app/views/layouts/mailer.html.haml</Source>
+    <Source>app/views/layouts/application.html.haml</Source>
+    <Source>app/views/layouts/mailer.text.haml</Source>
+    <Source>app/assets/config/manifest.js</Source>
+    <Source>app/assets/javascripts/application.js</Source>
+    <Source>app/assets/javascripts/cable.js</Source>
+    <Source>app/assets/stylesheets/active_admin.scss</Source>
+  </Sources>
+  <Forms/>
+  <Translations/>
+  <Resources/>
+  <Interfaces/>
+  <Others/>
+  <Vcs>
+    <VcsType>None</VcsType>
+  </Vcs>
+  <FiletypeAssociations>
+    <FiletypeAssociation pattern="*.coffee" type="SOURCES"/>
+    <FiletypeAssociation pattern="*.css" type="SOURCES"/>
+    <FiletypeAssociation pattern="*.haml" type="SOURCES"/>
+    <FiletypeAssociation pattern="*.idl" type="INTERFACES"/>
+    <FiletypeAssociation pattern="*.js" type="SOURCES"/>
+    <FiletypeAssociation pattern="*.ptl" type="SOURCES"/>
+    <FiletypeAssociation pattern="*.py" type="SOURCES"/>
+    <FiletypeAssociation pattern="*.py2" type="SOURCES"/>
+    <FiletypeAssociation pattern="*.py3" type="SOURCES"/>
+    <FiletypeAssociation pattern="*.pyw" type="SOURCES"/>
+    <FiletypeAssociation pattern="*.pyw2" type="SOURCES"/>
+    <FiletypeAssociation pattern="*.pyw3" type="SOURCES"/>
+    <FiletypeAssociation pattern="*.rb" type="SOURCES"/>
+    <FiletypeAssociation pattern="*.scss" type="SOURCES"/>
+  </FiletypeAssociations>
+</Project>
