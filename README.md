@@ -19,4 +19,6 @@ Things you may want to cover:
 
 * Using HAML 
 
+* Multiple Forums withs Postes and Commits
+
 
