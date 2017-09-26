@@ -5,20 +5,18 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version 2.31
 
-* System dependencies
+* Rails 5.0.1
 
-* Configuration
+* Configuration using rename to change App name
 
-* Database creation
+* Database creation default sqlite3
 
-* Database initialization
+* Database initialization seeds
 
-* How to run the test suite
+* Using Activeadmin with ActiveSkin
 
-* Services (job queues, cache servers, search engines, etc.)
+* Using HAML 
 
-* Deployment instructions
 
-* ...
